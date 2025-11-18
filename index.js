@@ -4,6 +4,8 @@ config({path:`.env.${process.env.NODE_ENV || 'development'}.local`});
 import authRoutes from "./routes/authRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import subscriptionRoutes from "./routes/subscribtionRoutes.js"
+import { connectDB } from "./config/db.js";
+connectDB();
 
 const app = express();
 
