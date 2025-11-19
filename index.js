@@ -14,7 +14,6 @@ const app = express();
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(errorMiddleware);
 
 app.get("/", (req, res) => {
   res.send("Home");
@@ -25,6 +24,8 @@ app.use("/api/user", userRoutes);
 app.use("/api/subscription", subscriptionRoutes);
 
 const PORT = process.env.PORT || 8000;
+
+app.use(errorMiddleware);
 
 app.listen(PORT, () => {
   console.log("server running");
